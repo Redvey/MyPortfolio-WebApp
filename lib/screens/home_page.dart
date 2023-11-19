@@ -47,14 +47,13 @@ class HomePage extends StatelessWidget {
                 child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   Column(
+                  Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FrostedContainer(
-                        height: 396,
-                        width: 247,
-                         childG: Center(child: Text("Roopam"),)
-                      ),
+                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
                       SizedBox(height: 10,),
+                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
+                      SizedBox(height: 10,),
+                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
                     ],
                   ),
                   SizedBox(
@@ -64,30 +63,60 @@ class HomePage extends StatelessWidget {
                         return DeviceFrame(
                             device: currentState.currentDevice,
                             screen: Container(
-                              decoration: const BoxDecoration(color: Colors.green),
-                              child: const Center(
-                                child: Text("Hi it's Roopam",
-                                style: TextStyle(
-                                  color: Colors.white
-                                ),),
-                              ),
+                                padding: const EdgeInsets.only(top: 70, left: 24, right: 24),
+                              decoration:  BoxDecoration(gradient: colorPalette[currentState.knobSelected].gradient),
+                              child: Wrap(
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                alignment: WrapAlignment.start,
+                                children: [
+                                  ...List.generate(apps.length, (index) => Container(
+                                    margin: EdgeInsets.only(right: 10,left: 10,top: 10,bottom: 20),
+                                    child: Column(
+                                      children: [
+                                        CustomButton(onPressed: (){
+                                          if(apps[index].link!=null){
+                                            currentState.launchInBrowser(apps[index].link!);
+                                          }
+                                        },
+                                          margin: EdgeInsets.only(bottom: 5),
+                                        animate: true,
+                                        width: 45,
+                                        height: 45,
+                                        backgroundColor: apps[index].color,
+                                          borderRadius: currentState.currentDevice==Devices.ios.iPhone13?8:100,
+                                        child: Center(
+                                          child: Icon(apps[index].icon,size: 25,color: Colors.black12,),
+                                        ),),
+                                        SizedBox(width: 65,
+                                        child: Center(child: Text(apps[index].title,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                          fontSize: 12,
+                                        ),),),)
+                                      ],
+                                    ),
+                                  ))
+                                ],
+                              )
                             ));
                       }
                     ),
                   ),
-                   Column(
+                   Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FrostedContainer(height: 396,width: 247,childG: Center(child: Text("data"),),),
+                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
                       SizedBox(height: 10,),
-                      FrostedContainer(height: 175,width: 247,childG:
+                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
+                      SizedBox(height: 10,),
+                      FrostedContainer(height: 150,width: 247,childG:
                       Center(
                         child: Wrap(children: [
                           ...List.generate(colorPalette.length, (index) => CustomButton(onPressed: (){
-                            currentState.chnageGradient(index);
+                            currentState.changeGradient(index);
                           },
                             margin: EdgeInsets.all(10),
                             animate: true,
-                            isThreeD: true,
                             borderRadius: 100,
                             height: 52,
                             width: 52,

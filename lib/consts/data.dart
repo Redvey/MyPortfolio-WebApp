@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:device_frame/device_frame.dart';
+import 'package:portfolio/models/app_model.dart';
 import 'package:portfolio/models/color_model.dart';
 import 'package:portfolio/models/device_model.dart';
 
@@ -44,3 +46,18 @@ List<ColorModel>colorPalette=[
   ),color: Colors.greenAccent),
 
 ];
+
+List<AppModel>apps=[
+  AppModel(title: "About", color: Colors.white,icon: CupertinoIcons.sportscourt_fill),
+  AppModel(title: "Skills", color: Colors.white,icon: CupertinoIcons.infinite),
+  AppModel(title: "LinkedIN", color: Colors.white,icon: CupertinoIcons.snow,link: linkedIN),
+  AppModel(title: "Github", color: Colors.white,icon: CupertinoIcons.gift,link: github),
+  AppModel(title: "Experience", color: Colors.white,icon: CupertinoIcons.briefcase_fill),
+  AppModel(title: "Resume", color: Colors.white,icon: CupertinoIcons.book_circle_fill,link: resume),
+  AppModel(title: "Education", color: Colors.white,icon: Icons.school),
+  AppModel(title: "TicketX", color: Colors.white,icon: Icons.flutter_dash),
+];
+
+const String linkedIN="https://www.linkedin.com/in/roopam10/";
+const String resume="https://drive.google.com/file/d/1SHvNFoXbTwWSUhW7SkXJsGeeyp4QvIMG/view";
+const String github="https://github.com/Redvey";
