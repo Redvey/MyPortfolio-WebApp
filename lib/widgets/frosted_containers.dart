@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 class FrostedContainer extends StatelessWidget {
   final double height;
   final double width;
+  final Widget ?childG;
   const FrostedContainer({super.key,
-  required this.height, required this.width});
+  required this.height, required this.width,required this.childG});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class FrostedContainer extends StatelessWidget {
       child: Stack(
         children: [
           BackdropFilter(filter: ImageFilter.blur(sigmaX: 7,sigmaY: 7),
-            child: Container(
+            child: Container(child: childG,
               height: height,
               width: width,
               decoration: BoxDecoration(

@@ -2,6 +2,7 @@
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/consts/data.dart';
 import 'package:portfolio/providers/current_state.dart';
@@ -20,56 +21,84 @@ class HomePage extends StatelessWidget {
     return  Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                colors: [Colors.deepPurpleAccent,Colors.blue]
-              )
-            ),
+
+          Selector<CurrentState,int>(
+            selector: (context,provider)=> provider.knobSelected,
+            builder: (context,_,__) {
+              return Container(
+                decoration:  BoxDecoration(
+                  gradient: colorPalette[currentState.knobSelected].gradient
+                ),
+              );
+            }
           ),
-          SvgPicture.asset("assets/images/CloudyBlue.svg",height: size.height,
-          fit: BoxFit.cover,),
+          Selector<CurrentState,int>(
+            selector: (context,provider)=> provider.knobSelected,
+            builder: (context,_,__) {
+              return SvgPicture.asset(colorPalette[currentState.knobSelected].svgPath,height: size.height,
+                fit: BoxFit.cover,);
+            }
+          ),
+
           Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 10,),
-              Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Column(
-                  children: [
-                    FrostedContainer(height: 396,width: 247,),
-                    SizedBox(height: 10,),
-                    FrostedContainer(height: 175,width: 247,),
-                  ],
-                ),
-                SizedBox(
-                  height: size.height-100,
-                  child: Consumer<CurrentState>(
-                    builder: (context,_,__) {
-                      return DeviceFrame(
-                          device: currentState.currentDevice,
-                          screen: Container(
-                            decoration: const BoxDecoration(color: Colors.green),
-                            child: const Center(
-                              child: Text("Hi it's Roopam",
-                              style: TextStyle(
-                                color: Colors.white
-                              ),),
-                            ),
-                          ));
-                    }
+              Expanded(
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                   Column(
+                    children: [
+                      FrostedContainer(
+                        height: 396,
+                        width: 247,
+                         childG: Center(child: Text("Roopam"),)
+                      ),
+                      SizedBox(height: 10,),
+                    ],
                   ),
-                ),
-                const Column(
-                  children: [
-                    FrostedContainer(height: 396,width: 247,),
-                    SizedBox(height: 10,),
-                    FrostedContainer(height: 175,width: 247,),
-                  ],
-                ),
-              ],
+                  SizedBox(
+                    height: size.height-100,
+                    child: Consumer<CurrentState>(
+                      builder: (context,_,__) {
+                        return DeviceFrame(
+                            device: currentState.currentDevice,
+                            screen: Container(
+                              decoration: const BoxDecoration(color: Colors.green),
+                              child: const Center(
+                                child: Text("Hi it's Roopam",
+                                style: TextStyle(
+                                  color: Colors.white
+                                ),),
+                              ),
+                            ));
+                      }
+                    ),
+                  ),
+                   Column(
+                    children: [
+                      FrostedContainer(height: 396,width: 247,childG: Center(child: Text("data"),),),
+                      SizedBox(height: 10,),
+                      FrostedContainer(height: 175,width: 247,childG:
+                      Center(
+                        child: Wrap(children: [
+                          ...List.generate(colorPalette.length, (index) => CustomButton(onPressed: (){
+                            currentState.chnageGradient(index);
+                          },
+                            margin: EdgeInsets.all(10),
+                            animate: true,
+                            isThreeD: true,
+                            borderRadius: 100,
+                            height: 52,
+                            width: 52,
+                            backgroundColor: colorPalette[index].color,))
+                        ],),
+                      )),
+                    ],
+                  ),
+                ],
         ),
+              ),
 
               const SizedBox(height: 10,),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround,

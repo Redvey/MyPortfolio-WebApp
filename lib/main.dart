@@ -18,6 +18,7 @@ class MyPortfolio extends StatelessWidget {
         ChangeNotifierProvider(create: (context)=>CurrentState())
       ],
       child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: HomePage(),
       ),
     );
