@@ -1,6 +1,7 @@
 
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,6 +20,12 @@ class HomePage extends StatelessWidget {
     CurrentState currentState =
        Provider.of<CurrentState>(context,listen: false);
     return  Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(CupertinoIcons.chat_bubble_2_fill),
+          backgroundColor: Color(0xFF2A2929),
+        elevation: 0,
+      ),
       body: Stack(
         children: [
 
@@ -49,11 +56,11 @@ class HomePage extends StatelessWidget {
                 children: [
                   Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
+                      FrostedContainer(height: 150,width: 225,childG: Center(child: Text("data"),),),
                       SizedBox(height: 10,),
-                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
+                      FrostedContainer(height: 150,width: 225,childG: Center(child: Text("data"),),),
                       SizedBox(height: 10,),
-                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
+                      FrostedContainer(height: 150,width: 225,childG: Center(child: Text("data"),),),
                     ],
                   ),
                   SizedBox(
@@ -85,7 +92,7 @@ class HomePage extends StatelessWidget {
                                         backgroundColor: apps[index].color,
                                           borderRadius: currentState.currentDevice==Devices.ios.iPhone13?8:100,
                                         child: Center(
-                                          child: Icon(apps[index].icon,size: 25,color: Colors.black12,),
+                                          child: Icon(apps[index].icon,size: 25,color: Color(0xFF2A2929),),
                                         ),),
                                         SizedBox(width: 65,
                                         child: Center(child: Text(apps[index].title,
@@ -105,11 +112,11 @@ class HomePage extends StatelessWidget {
                   ),
                    Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
+                      FrostedContainer(height: 150,width: 225,childG: Center(child: Text("data"),),),
                       SizedBox(height: 10,),
-                      FrostedContainer(height: 150,width: 247,childG: Center(child: Text("data"),),),
+                      FrostedContainer(height: 150,width: 225,childG: Center(child: Text("data"),),),
                       SizedBox(height: 10,),
-                      FrostedContainer(height: 150,width: 247,childG:
+                      FrostedContainer(height: 150,width: 225,childG:
                       Center(
                         child: Wrap(children: [
                           ...List.generate(colorPalette.length, (index) => CustomButton(onPressed: (){

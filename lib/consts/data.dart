@@ -14,35 +14,41 @@ List<DeviceModel>devices=[
 ];
 
 List<ColorModel>colorPalette=[
-  ColorModel(svgPath: "assets/images/red.svg", gradient: LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.topRight,
-    colors: [Colors.red,Colors.blue]
+  ColorModel(svgPath: "assets/images/red.svg", gradient: SweepGradient(
+      stops: [0.0, 0.3, 0.6, 1.0],
+      startAngle: 0.0,
+      endAngle: 2 * 3.14,
+      transform: GradientRotation(0.5),
+
+      colors: [Color(0xFF36070E),Color(0xFFE27A7A),Color(0xFFA23E48),Color(0xFF79303A),]
   ),color: Colors.red),
   ColorModel(svgPath: "assets/images/blue.svg", gradient: LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.topRight,
-    colors: [Colors.amber,Colors.blue]
+    begin: Alignment.bottomRight,
+    end: Alignment.topLeft,
+    colors: [Colors.indigo,Colors.lightBlueAccent,Colors.blue]
   ),color: Colors.blue),
   ColorModel(svgPath: "assets/images/gold.svg", gradient: LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.topRight,
-    colors: [Colors.red,Colors.blue]
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+      colors: [Color(0xFFAF7104),Color(0xFFDCAB01),Color(0xFFFFD500),Color(
+          0xFFF3AE00)]
   ),color: Colors.amber),
   ColorModel(svgPath: "assets/images/night.svg", gradient: LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.topRight,
-    colors: [Colors.pink,Colors.pinkAccent]
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+    colors: [Colors.purpleAccent,Colors.pinkAccent,Colors.purple,]
   ),color: Colors.purple),
-  ColorModel(svgPath: "assets/images/green.svg", gradient: LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.topRight,
-    colors: [Colors.orange,Colors.white]
+  ColorModel(svgPath: "assets/images/green.svg", gradient: SweepGradient(
+      stops: [0.0, 0.3, 0.6, 1.0],
+      startAngle: 3.14 / 2,
+      endAngle: 2 * 3.14,
+      transform: GradientRotation(2),
+    colors: [Color(0xFF028373),Color(0xFF00957C),Color(0xFF01A784),Color(0xFF00BA8A)]
   ),color: Colors.green),
   ColorModel(svgPath: "assets/images/neon.svg", gradient: LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.topRight,
-    colors: [Colors.black,Colors.black12]
+      begin: Alignment.bottomRight,
+      end: Alignment.topLeft,
+    colors: [Color(0xFFB3CC00),Color(0xFFB3CC00),Color(0xFFA8BA00),Color(0xFF8F9400)]
   ),color: Colors.greenAccent),
 
 ];
