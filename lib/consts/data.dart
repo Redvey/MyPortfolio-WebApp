@@ -4,11 +4,13 @@ import 'package:device_frame/device_frame.dart';
 import 'package:portfolio/models/app_model.dart';
 import 'package:portfolio/models/color_model.dart';
 import 'package:portfolio/models/device_model.dart';
+import 'package:portfolio/screens/mini_projects/about/about.dart';
+
 
 
 
 List<DeviceModel>devices=[
-  DeviceModel(devices: Devices.android.onePlus8Pro, data: Icons.android ),
+  DeviceModel(devices: Devices.android.samsungGalaxyNote20Ultra, data: Icons.android ),
   DeviceModel(devices: Devices.ios.iPhone13, data: Icons.apple ),
   DeviceModel(devices: Devices.ios.iPad, data: Icons.tablet ),
 ];
@@ -19,7 +21,6 @@ List<ColorModel>colorPalette=[
       startAngle: 0.0,
       endAngle: 2 * 3.14,
       transform: GradientRotation(0.5),
-
       colors: [Color(0xFF36070E),Color(0xFFE27A7A),Color(0xFFA23E48),Color(0xFF79303A),]
   ),color: Colors.red),
   ColorModel(svgPath: "assets/images/blue.svg", gradient: LinearGradient(
@@ -27,7 +28,8 @@ List<ColorModel>colorPalette=[
     end: Alignment.topLeft,
     colors: [Colors.indigo,Colors.lightBlueAccent,Colors.blue]
   ),color: Colors.blue),
-  ColorModel(svgPath: "assets/images/gold.svg", gradient: LinearGradient(
+  ColorModel(svgPath: "assets/images/gold.svg",
+      gradient: LinearGradient(
       begin: Alignment.bottomRight,
       end: Alignment.topLeft,
       colors: [Color(0xFFAF7104),Color(0xFFDCAB01),Color(0xFFFFD500),Color(
@@ -54,7 +56,7 @@ List<ColorModel>colorPalette=[
 ];
 
 List<AppModel>apps=[
-  AppModel(title: "About", color: Colors.white,icon: CupertinoIcons.sportscourt_fill),
+  AppModel(title: "About", color: Colors.white,icon: CupertinoIcons.sportscourt_fill,screen: AboutMe()),
   AppModel(title: "Skills", color: Colors.white,icon: CupertinoIcons.infinite),
   AppModel(title: "LinkedIN", color: Colors.white,icon: CupertinoIcons.snow,link: linkedIN),
   AppModel(title: "Github", color: Colors.white,icon: CupertinoIcons.gift,link: github),
@@ -67,3 +69,7 @@ List<AppModel>apps=[
 const String linkedIN="https://www.linkedin.com/in/roopam10/";
 const String resume="https://drive.google.com/file/d/1SHvNFoXbTwWSUhW7SkXJsGeeyp4QvIMG/view";
 const String github="https://github.com/Redvey";
+String introduction=
+    "Welcome to my portfolio website, this is highly inspire(almost copied) from Pawan Kunar\n I am developer btw";
+
+

@@ -7,6 +7,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/consts/data.dart';
 import 'package:portfolio/providers/current_state.dart';
+import 'package:portfolio/screens/phone_home_page.dart';
+import 'package:portfolio/screens/phone_screen_wrapper.dart';
 import 'package:portfolio/widgets/frosted_containers.dart';
 import 'package:provider/provider.dart';
 
@@ -70,43 +72,11 @@ class HomePage extends StatelessWidget {
                         return DeviceFrame(
                             device: currentState.currentDevice,
                             screen: Container(
-                                padding: const EdgeInsets.only(top: 70, left: 24, right: 24),
-                              decoration:  BoxDecoration(gradient: colorPalette[currentState.knobSelected].gradient),
-                              child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                alignment: WrapAlignment.start,
-                                children: [
-                                  ...List.generate(apps.length, (index) => Container(
-                                    margin: EdgeInsets.only(right: 10,left: 10,top: 10,bottom: 20),
-                                    child: Column(
-                                      children: [
-                                        CustomButton(onPressed: (){
-                                          if(apps[index].link!=null){
-                                            currentState.launchInBrowser(apps[index].link!);
-                                          }
-                                        },
-                                          margin: EdgeInsets.only(bottom: 5),
-                                        animate: true,
-                                        width: 45,
-                                        height: 45,
-                                        backgroundColor: apps[index].color,
-                                          borderRadius: currentState.currentDevice==Devices.ios.iPhone13?8:100,
-                                        child: Center(
-                                          child: Icon(apps[index].icon,size: 25,color: Color(0xFF2A2929),),
-                                        ),),
-                                        SizedBox(width: 65,
-                                        child: Center(child: Text(apps[index].title,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                          fontSize: 12,
-                                        ),),),)
-                                      ],
-                                    ),
-                                  ))
-                                ],
-                              )
-                            ));
+                                decoration:  BoxDecoration(
+                                    gradient: colorPalette[currentState.knobSelected].gradient),
+                                child: ScreenWrapper(childG: currentState.currentScreen)
+                            ),
+                        );
                       }
                     ),
                   ),
