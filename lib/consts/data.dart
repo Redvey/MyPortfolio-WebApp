@@ -70,6 +70,7 @@ List<AppModel>apps=[
   AppModel(title: "TicketX", color: Colors.white,icon: Icons.flutter_dash),
   AppModel(title: "Twitter", color: Colors.white,icon: CupertinoIcons.xmark,link: twitter),
   AppModel(title: "Behance", color: Colors.white,icon: CupertinoIcons.paintbrush_fill,link: behance),
+  AppModel(title: "LinkTree", color: Colors.white,icon: CupertinoIcons.tree,link: linktree),
 ];
 
 
@@ -121,6 +122,7 @@ const String resume="https://drive.google.com/file/d/1SHvNFoXbTwWSUhW7SkXJsGeeyp
 const String github="https://github.com/Redvey";
 const String twitter="https://twitter.com/redvey10";
 const String behance="https://www.behance.net/roopam__cse";
+const String linktree="https://linktr.ee/roop_dev";
 String introduction=
     "Welcome to my portfolio website, this is highly inspire(almost copied) from Pawan Kunar\n I am developer btw";
 
