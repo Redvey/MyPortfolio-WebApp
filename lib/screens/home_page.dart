@@ -7,7 +7,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/consts/data.dart';
 import 'package:portfolio/providers/current_state.dart';
-import 'package:portfolio/screens/phone_home_page.dart';
 import 'package:portfolio/screens/phone_screen_wrapper.dart';
 import 'package:portfolio/widgets/frosted_containers.dart';
 import 'package:provider/provider.dart';
@@ -65,6 +64,7 @@ class HomePage extends StatelessWidget {
                       FrostedContainer(height: 150,width: 225,childG: Center(child: Text("data"),),),
                     ],
                   ),
+                  SizedBox(width: 20,),
                   SizedBox(
                     height: size.height-100,
                     child: Consumer<CurrentState>(
@@ -80,6 +80,7 @@ class HomePage extends StatelessWidget {
                       }
                     ),
                   ),
+                  SizedBox(width: 20,),
                    Column(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FrostedContainer(height: 150,width: 225,childG: Center(child: Text("data"),),),

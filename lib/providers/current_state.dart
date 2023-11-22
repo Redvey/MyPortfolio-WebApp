@@ -41,5 +41,30 @@ class CurrentState extends ChangeNotifier {
      knobSelected= index;
      notifyListeners();
    }
+   bool _isDarkMode = false;
+
+   bool get isDarkMode => _isDarkMode;
+
+   Color _textThemeColor = Colors.black; // Default text color for light mode
+   Color _backgroundColor = Colors.white; // Default background color for light mode
+
+   Color get textThemeColor => _textThemeColor;
+   Color get backgroundColor => _backgroundColor;
+
+   void toggleDarkMode() {
+     _isDarkMode = !_isDarkMode;
+     notifyListeners();
+
+     // Add logic to handle the actual theme mode change here
+     if (_isDarkMode) {
+       // Apply dark mode colors
+       _textThemeColor = Colors.white; // Adjust text color for dark mode
+       _backgroundColor = const Color(0xFF1B1C16); // Dark mode background color
+     } else {
+       // Apply light mode colors
+       _textThemeColor = Colors.black; // Adjust text color for light mode
+       _backgroundColor = Colors.white; // Light mode background color
+     }
+   }
 
 }

@@ -4,7 +4,9 @@ import 'package:device_frame/device_frame.dart';
 import 'package:portfolio/models/app_model.dart';
 import 'package:portfolio/models/color_model.dart';
 import 'package:portfolio/models/device_model.dart';
+import 'package:portfolio/models/experience_model.dart';
 import 'package:portfolio/screens/mini_projects/about/about.dart';
+import 'package:portfolio/screens/mini_projects/jobs/jobs.dart';
 
 
 
@@ -60,10 +62,54 @@ List<AppModel>apps=[
   AppModel(title: "Skills", color: Colors.white,icon: CupertinoIcons.infinite),
   AppModel(title: "LinkedIN", color: Colors.white,icon: CupertinoIcons.snow,link: linkedIN),
   AppModel(title: "Github", color: Colors.white,icon: CupertinoIcons.gift,link: github),
-  AppModel(title: "Experience", color: Colors.white,icon: CupertinoIcons.briefcase_fill),
+  AppModel(title: "Experience", color: Colors.white,icon: CupertinoIcons.briefcase_fill,screen: JobApp()),
   AppModel(title: "Resume", color: Colors.white,icon: CupertinoIcons.book_circle_fill,link: resume),
   AppModel(title: "Education", color: Colors.white,icon: Icons.school),
   AppModel(title: "TicketX", color: Colors.white,icon: Icons.flutter_dash),
+];
+
+
+final List<JobExperience> education = [
+  JobExperience(
+    color: Colors.red,
+    location: "Patiala, India",
+    title: 'Computer Engineering',
+    company: 'Thapar Institure of Engineering',
+    startDate: 'June 2021',
+    endDate: 'Present',
+    bulletPoints: [
+      "Currently in the final year of my college!",
+    ],
+  ),
+  JobExperience(
+    color: Colors.blue,
+    location: "Patiala, India",
+    title: 'Diploma in Computer Science',
+    company: 'Thapar Polytechnic College',
+    startDate: 'June 2018',
+    endDate: 'June 2021',
+    bulletPoints: [
+      'Some of the best years of college life',
+    ],
+  ),
+];
+
+final List<JobExperience> jobExperiences = [
+  JobExperience(
+    color: Colors.blue,
+    location: "Kaliyaganj, West Bengal,India",
+    title: 'Flutter UI/UX Developer',
+    company: 'Solution Crafter',
+    startDate: 'Sept 2023',
+    endDate: 'Present',
+    bulletPoints: [
+      "A new budding Startup"
+      "Actively develops and designs for  clients",
+      "Crafted effective School management system and health care management system",
+      "Employ Amplitude and Firebase Analytics to track and analyze user behavior, informing data-driven decisions.",
+    ],
+  ),
+  // Add more job experiences here...
 ];
 
 const String linkedIN="https://www.linkedin.com/in/roopam10/";
