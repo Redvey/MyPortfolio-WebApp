@@ -6,6 +6,7 @@ import 'package:portfolio/models/color_model.dart';
 import 'package:portfolio/models/device_model.dart';
 import 'package:portfolio/models/experience_model.dart';
 import 'package:portfolio/screens/mini_projects/about/about.dart';
+import 'package:portfolio/screens/mini_projects/eductaion/education.dart';
 import 'package:portfolio/screens/mini_projects/jobs/jobs.dart';
 
 
@@ -28,14 +29,15 @@ List<ColorModel>colorPalette=[
   ColorModel(svgPath: "assets/images/blue.svg", gradient: LinearGradient(
     begin: Alignment.bottomRight,
     end: Alignment.topLeft,
-    colors: [Colors.indigo,Colors.lightBlueAccent,Colors.blue]
+    colors: [Colors.indigo,Colors.lightBlueAccent,Color(0xFF3F72F8),Colors.blue,Colors.indigo,]
   ),color: Colors.blue),
   ColorModel(svgPath: "assets/images/gold.svg",
-      gradient: LinearGradient(
-      begin: Alignment.bottomRight,
-      end: Alignment.topLeft,
-      colors: [Color(0xFFAF7104),Color(0xFFDCAB01),Color(0xFFFFD500),Color(
-          0xFFF3AE00)]
+      gradient: SweepGradient(
+          stops: [0.0, 0.3, 0.6, 1.0],
+          startAngle: 3.14 / 2,
+          endAngle: 2 * 3.14,
+          transform: GradientRotation(2),
+      colors: [Color(0xFFAF7104),Color(0xFFDCAB01),Color(0xFFBB9C00),Color(0xFFAF7104)]
   ),color: Colors.amber),
   ColorModel(svgPath: "assets/images/night.svg", gradient: LinearGradient(
       begin: Alignment.bottomRight,
@@ -64,32 +66,34 @@ List<AppModel>apps=[
   AppModel(title: "Github", color: Colors.white,icon: CupertinoIcons.gift,link: github),
   AppModel(title: "Experience", color: Colors.white,icon: CupertinoIcons.briefcase_fill,screen: JobApp()),
   AppModel(title: "Resume", color: Colors.white,icon: CupertinoIcons.book_circle_fill,link: resume),
-  AppModel(title: "Education", color: Colors.white,icon: Icons.school),
+  AppModel(title: "Education", color: Colors.white,icon: Icons.school,screen: EducationPage()),
   AppModel(title: "TicketX", color: Colors.white,icon: Icons.flutter_dash),
+  AppModel(title: "Twitter", color: Colors.white,icon: CupertinoIcons.xmark,link: twitter),
+  AppModel(title: "Behance", color: Colors.white,icon: CupertinoIcons.paintbrush_fill,link: behance),
 ];
 
 
 final List<JobExperience> education = [
   JobExperience(
     color: Colors.red,
-    location: "Patiala, India",
-    title: 'Computer Engineering',
-    company: 'Thapar Institure of Engineering',
-    startDate: 'June 2021',
+    location: "Cooch Behar,West Bengal, India",
+    title: 'Computer Science Engineering',
+    company: 'Coochbehar Government Engineering College',
+    startDate: 'Nov 2021',
     endDate: 'Present',
     bulletPoints: [
-      "Currently in the final year of my college!",
+      "Currently in the 2nd year of my college!",
     ],
   ),
   JobExperience(
     color: Colors.blue,
-    location: "Patiala, India",
-    title: 'Diploma in Computer Science',
-    company: 'Thapar Polytechnic College',
-    startDate: 'June 2018',
-    endDate: 'June 2021',
+    location: "Cooch Behar,West Bengal, India",
+    title: 'Higher Secondary',
+    company: 'Techno India Group Public School',
+    startDate: 'April 2009',
+    endDate: 'June 2022',
     bulletPoints: [
-      'Some of the best years of college life',
+      'Some of the best years of life',
     ],
   ),
 ];
@@ -115,6 +119,8 @@ final List<JobExperience> jobExperiences = [
 const String linkedIN="https://www.linkedin.com/in/roopam10/";
 const String resume="https://drive.google.com/file/d/1SHvNFoXbTwWSUhW7SkXJsGeeyp4QvIMG/view";
 const String github="https://github.com/Redvey";
+const String twitter="https://twitter.com/redvey10";
+const String behance="https://www.behance.net/roopam__cse";
 String introduction=
     "Welcome to my portfolio website, this is highly inspire(almost copied) from Pawan Kunar\n I am developer btw";
 
