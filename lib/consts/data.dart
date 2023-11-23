@@ -80,7 +80,7 @@ final List<JobExperience> education = [
     location: "Cooch Behar,West Bengal, India",
     title: 'Computer Science Engineering',
     company: 'Coochbehar Government Engineering College',
-    startDate: 'Nov 2021',
+    startDate: 'Nov 2022',
     endDate: 'Present',
     bulletPoints: [
       "Currently in the 2nd year of my college!",

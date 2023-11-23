@@ -21,12 +21,6 @@ class HomePage extends StatelessWidget {
     CurrentState currentState =
        Provider.of<CurrentState>(context,listen: false);
     return  Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        child: Icon(CupertinoIcons.chat_bubble_2_fill),
-          backgroundColor: Color(0xFF2A2929),
-        elevation: 0,
-      ),
       body: Stack(
         children: [
 
