@@ -58,5 +58,28 @@
       });
     });
   </script>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAi2xr33JYRMdqWAyVLtXO8P2CCGrXbvzQ",
+    authDomain: "redvey-portfolio.firebaseapp.com",
+    projectId: "redvey-portfolio",
+    storageBucket: "redvey-portfolio.appspot.com",
+    messagingSenderId: "70494687209",
+    appId: "1:70494687209:web:b62b74da8213febfa48578",
+    measurementId: "G-X3R4GN921Z"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
