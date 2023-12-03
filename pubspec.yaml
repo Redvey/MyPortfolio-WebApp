@@ -43,6 +43,8 @@ dependencies:
   url_launcher: ^6.2.1
   velocity_x: ^4.1.1
   google_fonts: ^6.1.0
+  lottie: ^2.7.0
+  o3d: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,9 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/images/
+    - assets/mini_app_directory/about/
+    - assets/mini_app_directory/tictactoe/
+    - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

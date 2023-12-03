@@ -39,7 +39,7 @@ class ScreenWrapper extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      instance.title ?? "My Dev Card",
+                      instance.title ?? "",
                       style: GoogleFonts.inter(fontSize: 18, color: getTextColor(instance.isDarkMode)),
                     ),
                     // Dark mode toggle icon

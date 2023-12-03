@@ -8,6 +8,7 @@ import 'package:portfolio/models/experience_model.dart';
 import 'package:portfolio/screens/mini_projects/about/about.dart';
 import 'package:portfolio/screens/mini_projects/eductaion/education.dart';
 import 'package:portfolio/screens/mini_projects/jobs/jobs.dart';
+import 'package:portfolio/screens/mini_projects/tictactoe/tictactoe.dart';
 
 
 
@@ -71,6 +72,7 @@ List<AppModel>apps=[
   AppModel(title: "Twitter", color: Colors.white,icon: CupertinoIcons.xmark,link: twitter),
   AppModel(title: "Behance", color: Colors.white,icon: CupertinoIcons.paintbrush_fill,link: behance),
   AppModel(title: "LinkTree", color: Colors.white,icon: CupertinoIcons.tree,link: linktree),
+  AppModel(title: "TicTac", color: Colors.white,icon: CupertinoIcons.game_controller_solid,screen: GameBoard()),
 ];
 
 
@@ -127,3 +129,23 @@ String introduction=
     "Welcome to my portfolio website, this is highly inspire(almost copied) from Pawan Kunar\n I am developer btw";
 
 
+class CustomGradient {
+  static final Gradient primaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFFFECD2),  // Start color
+      Color(0xFFFCB69F),  // End color
+    ],
+  );
+  static final Gradient secondGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFA9F1DF),  // Start color
+      Color(0xFF0FBBBB),  // End color
+    ],
+  );
+
+
+}
