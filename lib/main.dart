@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home_page.dart';
 import 'package:portfolio/providers/current_state.dart';
+import 'package:portfolio/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 
@@ -19,7 +19,7 @@ class MyPortfolio extends StatelessWidget {
       ],
       child:  MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: SplashScreen(),
       ),
     );
   }

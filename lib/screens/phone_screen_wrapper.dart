@@ -9,10 +9,10 @@ class ScreenWrapper extends StatelessWidget {
 
   const ScreenWrapper({Key? key, required this.childG}) : super(key: key);
   Color getBackgroundColor(bool isDarkMode) {
-    return isDarkMode ? const Color(0xFF1B1C16) : Color(0xFFC7C8B9);
+    return isDarkMode ? const Color(0xFF1B1C16) : const Color(0xFFC7C8B9);
   }
   Color getTextColor(bool isDarkMode) {
-    return isDarkMode ? Color(0xFFC7C8B9) : Color(0xFF1B1C16);
+    return isDarkMode ? const Color(0xFFC7C8B9) : const Color(0xFF1B1C16);
   }
   Color getbgappbar(bool isDarkMode) {
     return isDarkMode ? const Color(0xFF1B1C16) : Colors.white;

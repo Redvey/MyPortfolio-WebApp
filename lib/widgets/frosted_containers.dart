@@ -16,14 +16,14 @@ class FrostedContainer extends StatelessWidget {
     return ClipRRect(
       child: Stack(
         children: [
-          BackdropFilter(filter: ImageFilter.blur(sigmaX: 7,sigmaY: 7),
+          BackdropFilter(filter: ImageFilter.blur(sigmaX: 4,sigmaY: 4),
             child: Container(child: childG,
               height: height,
               width: width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(
-                      colors: [Colors.white.withOpacity(0.5),Colors.white.withOpacity(0.3)]
+                      colors: [Colors.white.withOpacity(0.2),Colors.white.withOpacity(0.3)]
                   )
               ),
             ),),
