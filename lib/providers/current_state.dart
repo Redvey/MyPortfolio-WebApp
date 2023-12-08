@@ -8,7 +8,7 @@ import '../screens/phone_home_page.dart';
 class CurrentState extends ChangeNotifier {
    DeviceInfo currentDevice=Devices.android.samsungGalaxyNote20Ultra;
    Gradient bgGradient=LinearGradient(colors: [Colors.deepPurple,Colors.blue],begin: Alignment.topLeft,end: Alignment.topRight);
-   int knobSelected=2;
+   int knobSelected=3;
 
    void changeSelectedDevice(DeviceInfo device){
      currentDevice= device;

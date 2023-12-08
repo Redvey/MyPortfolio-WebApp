@@ -85,8 +85,8 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: 500,
-                          width: 225, // Set the width of the O3D widget
+                          height: 525,
+                          width: 500, // Set the width of the O3D widget
                           child: O3D(
                             src: 'assets/animations/robot_32x.glb',
                             controller: o3dController,
@@ -123,6 +123,7 @@ class _HomePageState extends State<HomePage> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        //CLOCK
                         FrostedContainer(
                           height: 150,
                           width: 225,
@@ -132,12 +133,11 @@ class _HomePageState extends State<HomePage> {
                           // ),
                           childG: Row(
                             children: [
-                              ClockView(size: MediaQuery.of(context).size.height / 4.5,),
+                              ClockView(size: MediaQuery.of(context).size.height / 5,),
                               Column(crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Container(height: 2,width: 20*2.5,color: Colors.white,),
-                                  SizedBox(height: 3,),
                                   Text(formattedDate,style: GoogleFonts.robotoMono(
                                       fontSize: 10,color: Colors.white,fontWeight: FontWeight.w700),),
                                   Text(formattedTime,style: GoogleFonts.robotoMono(
@@ -151,6 +151,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         SizedBox(height: 10),
+                        //ANIMATED TEXT
                         FrostedContainer(
                           height: 150,
                           width: 225,
@@ -186,6 +187,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         SizedBox(height: 10),
+                        //THEME
                         FrostedContainer(
                           height: 150,
                           width: 225,
@@ -211,6 +213,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      width: 295,
                     ),
                   ],
                 ),
