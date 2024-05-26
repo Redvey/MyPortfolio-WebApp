@@ -1,4 +1,3 @@
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
@@ -15,78 +14,50 @@ import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
 class HomePage extends StatefulWidget {
-   const HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  O3DController o3dController= O3DController();
+  O3DController o3dController = O3DController();
 
   @override
   Widget build(BuildContext context) {
-    Size size= MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     CurrentState currentState =
-       Provider.of<CurrentState>(context,listen: false);
+        Provider.of<CurrentState>(context, listen: false);
     var now = DateTime.now();
     var formattedTime = DateFormat('HH:mm').format(now);
     var formattedDate = DateFormat('EEE/d/MMM').format(now);
 
-    //animatedtext
-    // const colorizeColors = [
-    //   Colors.orange,
-    //   Colors.white,
-    //   Colors.black,
-    //   Colors.green,
-    // ];
-    // const colorizeTextStyle = TextStyle(
-    //   fontSize: 22,
-    //   fontFamily: 'Agne',
-    //   fontWeight: FontWeight.bold,
-    // );
-
-    return  Scaffold(
-      body: Stack(
-        children: [
-
-          Selector<CurrentState,int>(
-            selector: (context,provider)=> provider.knobSelected,
-            builder: (context,_,__) {
+    return Scaffold(
+      body: Stack(children: [
+        Selector<CurrentState, int>(
+            selector: (context, provider) => provider.knobSelected,
+            builder: (context, _, __) {
               return Container(
-                decoration:  BoxDecoration(
-                  gradient: colorPalette[currentState.knobSelected].gradient
-                ),
+                decoration: BoxDecoration(
+                    gradient: colorPalette[currentState.knobSelected].gradient),
               );
-            }
-          ),
-          // Selector<CurrentState,int>(
-          //   selector: (context,provider)=> provider.knobSelected,
-          //   builder: (context,_,__) {
-          //     return SvgPicture.asset(colorPalette[currentState.knobSelected].svgPath,height: size.height,
-          //       fit: BoxFit.cover,);
-          //   }
-          // ),
-
-          Column(mainAxisAlignment: MainAxisAlignment.center,
+            }),
+        Padding(
+          padding: const EdgeInsets.all(24).copyWith(left: 9),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 10,),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      width: 20,
-                    ),
                     const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           height: 525,
-                          width: 500, // Set the width of the O3D widget
+                          width: 525, // Set the width of the O3D widget
                           // child: O3D(
                           //   src: 'assets/animations/robot_32x.glb',
                           //   controller: o3dController,
@@ -95,7 +66,8 @@ class _HomePageState extends State<HomePage> {
                           //   autoRotate: false,
 
                           // ),
-                          child: RiveAnimation.asset('assets/animations/quantumannealer.riv'),
+                          child: RiveAnimation.asset(
+                              'assets/animations/quantumannealer.riv'),
                         ),
                       ],
                     ),
@@ -110,9 +82,12 @@ class _HomePageState extends State<HomePage> {
                             device: currentState.currentDevice,
                             screen: Container(
                               decoration: BoxDecoration(
-                                gradient: colorPalette[currentState.knobSelected].gradient,
+                                gradient:
+                                    colorPalette[currentState.knobSelected]
+                                        .gradient,
                               ),
-                              child: ScreenWrapper(childG: currentState.currentScreen),
+                              child: ScreenWrapper(
+                                  childG: currentState.currentScreen),
                             ),
                           );
                         },
@@ -134,56 +109,79 @@ class _HomePageState extends State<HomePage> {
                           // ),
                           childG: Row(
                             children: [
-                              ClockView(size: MediaQuery.of(context).size.height / 5,),
-                              Column(crossAxisAlignment: CrossAxisAlignment.start,
+                              ClockView(
+                                size: MediaQuery.of(context).size.height / 5,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Container(height: 2,width: 20*2.5,color: Colors.white,),
-                                  Text(formattedDate,style: GoogleFonts.robotoMono(
-                                      fontSize: 10,color: Colors.white,fontWeight: FontWeight.w700),),
-                                  Text(formattedTime,style: GoogleFonts.robotoMono(
-                                      fontSize: 10,color: Colors.white,fontWeight: FontWeight.w700),),
-                                  const SizedBox(height: 3,),
-
+                                  Container(
+                                    height: 2,
+                                    width: 20 * 2.5,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    formattedDate,
+                                    style: GoogleFonts.robotoMono(
+                                        fontSize: 10,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                  Text(
+                                    formattedTime,
+                                    style: GoogleFonts.robotoMono(
+                                        fontSize: 10,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                  const SizedBox(
+                                    height: 3,
+                                  ),
                                 ],
                               )
-
                             ],
                           ),
                         ),
                         const SizedBox(height: 10),
+
                         //ANIMATED TEXT
+
                         FrostedContainer(
                           height: 150,
                           width: 225,
                           childG: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Center(child:
-                            DefaultTextStyle(
-                              style:  GoogleFonts.robotoMono(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                                color: Colors.white
+                            child: Center(
+                              child: DefaultTextStyle(
+                                style: GoogleFonts.robotoMono(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
+                                    color: Colors.white),
+                                child: AnimatedTextKit(
+                                  repeatForever: true,
+                                  animatedTexts: [
+                                    TypewriterAnimatedText('Hire me!'),
+                                    TypewriterAnimatedText(
+                                        "Hi! its Roopam's portfolio website\nClick here to hire me :)"),
+                                  ],
+                                  onTap: () async {
+                                    String email = Uri.encodeComponent(
+                                        "roopam12cse@gmail.com");
+                                    String subject = Uri.encodeComponent(
+                                        "Job Offer: [Position Title] - [Your Company Name]");
+                                    String body = Uri.encodeComponent(
+                                        "Hi! I'm <type your name>");
+                                    Uri mail = Uri.parse(
+                                        "mailto:$email?subject=$subject&body=$body");
+                                    if (await launchUrl(mail)) {
+                                      // Email app opened
+                                    } else {
+                                      // Email app is not opened
+                                    }
+                                  },
+                                ),
                               ),
-                              child: AnimatedTextKit(
-                                repeatForever: true,
-                                animatedTexts: [
-                                  TypewriterAnimatedText('Hire me!'),
-                                  TypewriterAnimatedText("Hi! its Roopam's portfolio website\nClick here to hire me :)"),
-                                ],
-                                onTap: () async {
-                                  String email = Uri.encodeComponent("roopam12cse@gmail.com");
-                                  String subject = Uri.encodeComponent("Job Offer: [Position Title] - [Your Company Name]");
-                                  String body = Uri.encodeComponent("Hi! I'm <type your name>");
-                                  Uri mail = Uri.parse("mailto:$email?subject=$subject&body=$body");
-                                  if (await launchUrl(mail)) {
-                                    // Email app opened
-                                  } else {
-                                    // Email app is not opened
-                                  }
-                                },
-                              ),
-                            ),
                             ),
                           ),
                         ),
@@ -197,7 +195,7 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 ...List.generate(
                                   colorPalette.length,
-                                      (index) => CustomButton(
+                                  (index) => CustomButton(
                                     onPressed: () {
                                       currentState.changeGradient(index);
                                     },
@@ -215,38 +213,75 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      width: 295,
+                    SizedBox(
+                      width: 320,
+                      height: double.infinity,
+                      child: Transform.rotate(
+                        angle: -90 *
+                            3.141592653589793 /
+                            180, // Rotate by 90 degrees (in radians)
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Build with ',
+                              style: GoogleFonts.orbitron(
+                                  fontSize: 18, letterSpacing: 3.0),
+                            ),
+                            Text('FLUTTER ',
+                                style: GoogleFonts.orbitron(
+                                    fontSize: 22,
+                                    letterSpacing: 3.0,
+                                    color: Colors.blue)),
+                            const FlutterLogo()
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-
-
-              const SizedBox(height: 10,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ...List.generate(devices.length, (index) => Selector<CurrentState,DeviceInfo>(
-                    selector: (context,provider)=>provider.currentDevice,
-                    builder: (context,_,__) {
-                      return CustomButton(
-                        backgroundColor: Colors.black,
-                          isThreeD:true,
-                          animate: true,
-                          height: 38,
-                          width: 38,
-                          borderRadius: 100,
-                          shadowColor: Colors.white,
-                          pressed: currentState.currentDevice==devices[index].devices?Pressed.pressed:Pressed.notPressed,
-                          onPressed: () { currentState.changeSelectedDevice(devices[index].devices); },
-                          child: Center(child: Icon(devices[index].data,color: Colors.white,),)
-                      );
-                    }
-                  ))
+                  ...List.generate(
+                      devices.length,
+                      (index) => Selector<CurrentState, DeviceInfo>(
+                          selector: (context, provider) =>
+                              provider.currentDevice,
+                          builder: (context, _, __) {
+                            return CustomButton(
+                                backgroundColor: Colors.black,
+                                isThreeD: true,
+                                animate: true,
+                                height: 38,
+                                width: 38,
+                                borderRadius: 100,
+                                shadowColor: Colors.white,
+                                pressed: currentState.currentDevice ==
+                                        devices[index].devices
+                                    ? Pressed.pressed
+                                    : Pressed.notPressed,
+                                onPressed: () {
+                                  currentState.changeSelectedDevice(
+                                      devices[index].devices);
+                                },
+                                child: Center(
+                                  child: Icon(
+                                    devices[index].data,
+                                    color: Colors.white,
+                                  ),
+                                ));
+                          }))
                 ],
               )
             ],
           ),
+        ),
       ]),
     );
   }
