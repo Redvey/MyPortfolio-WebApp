@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 
 class JobApp extends StatelessWidget {
-  const JobApp({Key? key});
+  const JobApp({super.key});
 
   @override
   Widget build(BuildContext context) {

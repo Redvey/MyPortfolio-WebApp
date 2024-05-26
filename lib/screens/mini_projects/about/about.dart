@@ -5,14 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutMe extends StatelessWidget {
-  const AboutMe({Key? key});
+  const AboutMe({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Consumer<CurrentState>(
       builder: (context, currentState, _) {
         Color getTextColor(bool isDarkMode) {
-          return isDarkMode ? const Color(0xFFC7C8B9) : Color(0xFF1B1C16);
+          return isDarkMode ? const Color(0xFFC7C8B9) : const Color(0xFF1B1C16);
         }
 
         Color getBackgroundColor(bool isDarkMode) {
@@ -20,7 +20,7 @@ class AboutMe extends StatelessWidget {
         }
 
         Color getbgboxes(bool isDarkMode) {
-          return isDarkMode ? const Color(0xFF23251A) : Color(0xFFF5DEFD);
+          return isDarkMode ? const Color(0xFF23251A) : const Color(0xFFF5DEFD);
         }
 
         return Scaffold(
@@ -83,7 +83,7 @@ class AboutMe extends StatelessWidget {
                           width: 1,
                         ),
                       ),
-                      fixedSize: Size(350, 55),
+                      fixedSize: const Size(350, 55),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +131,7 @@ class AboutMe extends StatelessWidget {
                           width: 1,
                         ),
                       ),
-                      fixedSize: Size(350, 55),
+                      fixedSize: const Size(350, 55),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

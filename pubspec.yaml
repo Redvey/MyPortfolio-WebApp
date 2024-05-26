@@ -46,6 +46,12 @@ dependencies:
   lottie: ^2.7.0
   o3d: ^3.1.0
   animated_text_kit: ^4.2.2
+  firebase_core: ^2.24.0
+  flutter_screenutil: ^5.9.0
+  intl: ^0.18.1
+  colorful_safe_area: ^1.0.0
+  dice_icons: ^0.1.5
+  rive: ^0.13.5
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +84,7 @@ flutter:
     - assets/mini_app_directory/about/
     - assets/mini_app_directory/tictactoe/
     - assets/animations/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
