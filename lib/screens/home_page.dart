@@ -3,7 +3,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:custom_button_builder/custom_button_builder.dart';
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:o3d/o3d.dart';
@@ -13,12 +12,13 @@ import 'package:portfolio/screens/mini_projects/clocky/clockview.dart';
 import 'package:portfolio/screens/phone_screen_wrapper.dart';
 import 'package:portfolio/widgets/frosted_containers.dart';
 import 'package:provider/provider.dart';
+import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
 
 class HomePage extends StatefulWidget {
-   HomePage({super.key});
+   const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -63,13 +63,13 @@ class _HomePageState extends State<HomePage> {
               );
             }
           ),
-          Selector<CurrentState,int>(
-            selector: (context,provider)=> provider.knobSelected,
-            builder: (context,_,__) {
-              return SvgPicture.asset(colorPalette[currentState.knobSelected].svgPath,height: size.height,
-                fit: BoxFit.cover,);
-            }
-          ),
+          // Selector<CurrentState,int>(
+          //   selector: (context,provider)=> provider.knobSelected,
+          //   builder: (context,_,__) {
+          //     return SvgPicture.asset(colorPalette[currentState.knobSelected].svgPath,height: size.height,
+          //       fit: BoxFit.cover,);
+          //   }
+          // ),
 
           Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -78,27 +78,28 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
-                    Column(
+                    const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
                           height: 525,
                           width: 500, // Set the width of the O3D widget
-                          child: O3D(
-                            src: 'assets/animations/robot_32x.glb',
-                            controller: o3dController,
-                            ar: false,
-                            autoPlay: true,
-                            autoRotate: false,
+                          // child: O3D(
+                          //   src: 'assets/animations/robot_32x.glb',
+                          //   controller: o3dController,
+                          //   ar: false,
+                          //   autoPlay: true,
+                          //   autoRotate: false,
 
-                          ),
+                          // ),
+                          child: RiveAnimation.asset('assets/animations/quantumannealer.riv'),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     SizedBox(
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Column(
@@ -142,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                                       fontSize: 10,color: Colors.white,fontWeight: FontWeight.w700),),
                                   Text(formattedTime,style: GoogleFonts.robotoMono(
                                       fontSize: 10,color: Colors.white,fontWeight: FontWeight.w700),),
-                                  SizedBox(height: 3,),
+                                  const SizedBox(height: 3,),
 
                                 ],
                               )
@@ -150,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         //ANIMATED TEXT
                         FrostedContainer(
                           height: 150,
@@ -186,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         //THEME
                         FrostedContainer(
                           height: 150,
@@ -200,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                                     onPressed: () {
                                       currentState.changeGradient(index);
                                     },
-                                    margin: EdgeInsets.all(10),
+                                    margin: const EdgeInsets.all(10),
                                     animate: true,
                                     borderRadius: 100,
                                     height: 52,
@@ -214,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 295,
                     ),
                   ],

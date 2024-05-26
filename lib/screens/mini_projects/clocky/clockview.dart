@@ -16,17 +16,18 @@ class ClockView extends StatefulWidget {
 
 class _ClockViewState extends State<ClockView> {
   @override void initState(){
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
 
       });
     });
     super.initState();
   }
+  @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topCenter,
-      child: Container(
+      child: SizedBox(
         width: widget.size,
         height: widget.size,
         child: Transform.rotate(
@@ -57,25 +58,25 @@ class ClockPainter extends CustomPainter {
     ..color=CustomColors.menuBackgroundColor;
 
     var outlineBrush=Paint()
-    ..color=Color(0xFFEAECFF)
+    ..color=const Color(0xFFEAECFF)
     ..style =PaintingStyle.stroke
     ..strokeWidth=16;
 
     var centerFillBrush=Paint()
-    ..color=Color(0xFFEAECFF);
+    ..color=const Color(0xFFEAECFF);
 
     var hourhandBrush=Paint()
-      ..color=Color(0xFFEAECFF)
-      ..shader=RadialGradient(colors: [Colors.yellow,Colors.pink]).
+      ..color=const Color(0xFFEAECFF)
+      ..shader=const RadialGradient(colors: [Colors.yellow,Colors.pink]).
       createShader(Rect.fromCircle(center: center, radius: radius))
       ..style =PaintingStyle.stroke
       ..strokeCap=StrokeCap.round
       ..strokeWidth=size.width/24;
 
     var minhandBrush=Paint()
-    ..shader=RadialGradient(colors: [Colors.redAccent,Colors.pink]).
+    ..shader=const RadialGradient(colors: [Colors.redAccent,Colors.pink]).
     createShader(Rect.fromCircle(center: center, radius: radius))
-      ..color=Color(0xFFEAECFF)
+      ..color=const Color(0xFFEAECFF)
       ..style =PaintingStyle.stroke
       ..strokeCap=StrokeCap.round
       ..strokeWidth=size.width/30;

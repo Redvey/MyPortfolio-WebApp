@@ -17,15 +17,14 @@ class FrostedContainer extends StatelessWidget {
       child: Stack(
         children: [
           BackdropFilter(filter: ImageFilter.blur(sigmaX: 4,sigmaY: 4),
-            child: Container(child: childG,
-              height: height,
+            child: Container(height: height,
               width: width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   gradient: LinearGradient(
                       colors: [Colors.white.withOpacity(0.2),Colors.white.withOpacity(0.3)]
                   )
-              ),
+              ),child: childG,
             ),),
 
         ],

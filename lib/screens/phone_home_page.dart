@@ -22,7 +22,7 @@ class PhoneHomeScreen extends StatelessWidget {
           alignment: WrapAlignment.start,
           children: [
             ...List.generate(apps.length, (index) => Container(
-              margin: EdgeInsets.only(right: 10,left: 10,top: 10,bottom: 20),
+              margin: const EdgeInsets.only(right: 10,left: 10,top: 10,bottom: 20),
               child: Column(
                 children: [
                   CustomButton(onPressed: (){
@@ -33,14 +33,14 @@ class PhoneHomeScreen extends StatelessWidget {
                       currentState.changePhoneScreen(apps[index].screen!,false,titleL: apps[index].title);
                     }
                   },
-                    margin: EdgeInsets.only(bottom: 5),
+                    margin: const EdgeInsets.only(bottom: 5),
                     animate: true,
                     width: 45,
                     height: 45,
                     backgroundColor: apps[index].color,
                     borderRadius: currentState.currentDevice==Devices.ios.iPhone13?8:100,
                     child: Center(
-                      child: Icon(apps[index].icon,size: 25,color: Color(0xFF2A2929),),
+                      child: Icon(apps[index].icon,size: 25,color: const Color(0xFF2A2929),),
                     ),),
                   SizedBox(width: 65,
                     child: Center(child: Text(

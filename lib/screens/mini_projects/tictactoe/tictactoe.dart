@@ -25,12 +25,14 @@ class Utils {
 }
 
 class GameBoard extends StatefulWidget {
+  const GameBoard({super.key});
+
   @override
-  _GameBoardState createState() =>
-      _GameBoardState(); // a developer would usually use _classname_State
+  GameBoardState createState() =>
+      GameBoardState(); // a developer would usually use _classname_State
 }
 
-class _GameBoardState extends State<GameBoard> {
+class GameBoardState extends State<GameBoard> {
   late List<List<String>> matrix;
   final int matrixSize = 3;
   int playerXScore = 0;
@@ -49,9 +51,7 @@ class _GameBoardState extends State<GameBoard> {
 
   void setEmptyFields() {
     matrix = List.generate(
-        matrixSize,
-            (_) => List.generate(
-            matrixSize, (_) => p.noPlayer));
+        matrixSize, (_) => List.generate(matrixSize, (_) => p.noPlayer));
   }
 
   @override
@@ -139,7 +139,7 @@ class _GameBoardState extends State<GameBoard> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: Utils.modelBuilder(
                   matrix,
-                      (x, value) => buildRow(x),
+                  (x, value) => buildRow(x),
                 ),
               ),
               Row(
@@ -153,7 +153,8 @@ class _GameBoardState extends State<GameBoard> {
                       padding: const EdgeInsets.all(7),
                       child: Text(
                         "Player ${lastMove == p.X ? p.O : p.X}'s Turn",
-                        style: TextStyle(color: Colors.white, fontSize: 22),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 22),
                       ),
                     ),
                   ),
@@ -181,26 +182,28 @@ class _GameBoardState extends State<GameBoard> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: Utils.modelBuilder(
         matrix[x],
-            (y, value) => buildField(x, y),
+        (y, value) => buildField(x, y),
       ),
     );
   }
 
   Color getPlayerColor(String player) {
-    if (player == p.X)
-      return Color(0xff0f5d22);
-    else if (player == p.O)
-      return Color(0xffa95501);
-    else
+    if (player == p.X) {
+      return const Color(0xff0f5d22);
+    } else if (player == p.O)
+      // ignore: curly_braces_in_flow_control_structures
+      return const Color(0xffa95501);
+    else {
       return Colors.white;
+    }
   }
 
   Widget buildField(int x, int y) {
     return Container(
-      margin: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(92, 92),
+          minimumSize: const Size(92, 92),
           backgroundColor: getPlayerColor(matrix[x][y]),
         ),
         onPressed: () {
@@ -208,7 +211,7 @@ class _GameBoardState extends State<GameBoard> {
         },
         child: Text(
           matrix[x][y],
-          style: TextStyle(fontSize: 42),
+          style: const TextStyle(fontSize: 42),
         ),
       ),
     );
@@ -219,7 +222,7 @@ class _GameBoardState extends State<GameBoard> {
       showCelebration = true;
     });
 
-    await Future.delayed(Duration(seconds: 4)); // Wait for 8 seconds
+    await Future.delayed(const Duration(seconds: 4)); // Wait for 8 seconds
 
     setState(() {
       showCelebration = false; // Hide the animation after 8 seconds
@@ -235,17 +238,18 @@ class _GameBoardState extends State<GameBoard> {
       });
     }
     if (isWinner(x, y)) {
-      print("Player $lastMove has won");
+      debugPrint("Player $lastMove has won");
       setState(() {
-        if (lastMove == p.X)
+        if (lastMove == p.X) {
           playerXScore++;
-        else
+        } else {
           playerOScore++;
+        }
       });
       _startCelebrationAnimation(); // Start the celebration animation
       showEndDialog("Player $lastMove has won");
     } else if (isDraw()) {
-      print("Draw!");
+      debugPrint("Draw!");
       showEndDialog("Draw!");
     }
   }
@@ -257,7 +261,7 @@ class _GameBoardState extends State<GameBoard> {
       barrierDismissible: false,
       builder: (context) => AlertDialog(
         title: Text(message),
-        content: Text("Would you like to play again or reset the score?"),
+        content: const Text("Would you like to play again or reset the score?"),
         actions: [
           TextButton(
             onPressed: () {
@@ -267,7 +271,7 @@ class _GameBoardState extends State<GameBoard> {
               });
               Navigator.of(context).pop();
             },
-            child: Text("Play Again"),
+            child: const Text("Play Again"),
           ),
         ],
       ),
