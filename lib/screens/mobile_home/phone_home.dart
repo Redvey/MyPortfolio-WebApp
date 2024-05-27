@@ -30,18 +30,19 @@ class _PhoneScaffoldState extends State<PhoneScaffold> {
                     gradient: colorPalette[currentState.knobSelected].gradient),
               );
             }),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            MobileDeviceFrame(size: size, currentState: currentState),
-            const SizedBox(
-              height: 10,
-            ),
-            MobileCustomButtons(currentState: currentState)
-          ],
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              MobileDeviceFrame(size: size, currentState: currentState),
+              
+              MobileCustomButtons(currentState: currentState)
+            ],
+          ),
         ),
       ]),
     );

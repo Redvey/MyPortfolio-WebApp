@@ -12,6 +12,8 @@ import 'package:portfolio/widgets/frosted_containers.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../widgets/color_box.dart';
+
 class TabletHome extends StatefulWidget {
   const TabletHome({super.key});
 
@@ -78,7 +80,7 @@ class _TabletHomeState extends State<TabletHome> {
                   const HireMeBox(),
                   const SizedBox(height: 10),
                   //THEME
-                  TabletColoredBox(currentState: currentState),
+                  ColorPalette(currentState: currentState,height: 105,width: 112,borderRadius: 50,buttonRadius: 26,),
                 ],
               ),
               Expanded(
