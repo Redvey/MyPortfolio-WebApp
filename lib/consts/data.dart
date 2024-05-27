@@ -35,7 +35,7 @@ List<ColorModel> colorPalette = [
         radius: 0.73,
         colors: [Colors.black, Color(0xFF3D1B9D), Colors.black],
       ),
-      color: const Color(0xFF3D1B9D)),
+      color: const Color.fromARGB(255, 27, 44, 157)),
   ColorModel(
       gradient: const LinearGradient(
         begin: Alignment(0.92, -0.38),

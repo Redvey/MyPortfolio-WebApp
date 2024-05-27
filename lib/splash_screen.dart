@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:portfolio/responsive/responsive.dart';
-import 'package:portfolio/screens/home_page.dart';
-import 'package:portfolio/screens/phone_home.dart';
-import 'package:portfolio/screens/tablet_home.dart';
+import 'package:portfolio/screens/desktop_home/home_page.dart';
+import 'package:portfolio/screens/mobile_home/phone_home.dart';
+import 'package:portfolio/screens/tablet_home/tablet_home.dart';
 import 'package:rive/rive.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -25,10 +25,15 @@ class SplashScreen extends StatelessWidget {
 
     return const Scaffold(
       backgroundColor: Colors.black, // Set your desired background color
-      body: RiveAnimation.asset(
-        'assets/animations/circle_fui.riv', // Replace with your Lottie animation file
-        // Set your desired height
-        fit: BoxFit.contain,
+      body: Stack(
+        children: [
+          Positioned(child: Text("data")),
+          RiveAnimation.asset(
+            'assets/animations/circle_fui.riv', // Replace with your Lottie animation file
+            // Set your desired height
+            fit: BoxFit.fill,
+          ),
+        ],
       ),
     );
   }
