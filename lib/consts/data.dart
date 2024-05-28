@@ -160,16 +160,30 @@ final List<JobExperience> education = [
 final List<JobExperience> jobExperiences = [
   JobExperience(
     color: Colors.blue,
-    location: "Kaliyaganj, West Bengal,India",
+    location: "Remote",
     title: 'Flutter UI/UX Developer',
     company: 'Solution Crafter',
     startDate: 'Sept 2023',
-    endDate: 'Present',
+    endDate: 'Feb 2024',
     bulletPoints: [
       "A new budding Startup"
           "Actively develops and designs for  clients",
       "Crafted effective School management system and health care management system",
       "Employ Amplitude and Firebase Analytics to track and analyze user behavior, informing data-driven decisions.",
+    ],
+  ),
+    JobExperience(
+    color: Colors.red,
+    location: "Remote",
+    title: 'SDE Intern',
+    company: 'AVTECHFIN',
+    startDate: 'March 2024',
+    endDate: 'Present',
+    bulletPoints: [
+      """A new budding Startup"
+      Scaling Apps with optimized code and working with UIs and Games",
+      Crafted UI-Kit and E-Commerce solution,
+      """,
     ],
   ),
   // Add more job experiences here...
@@ -204,7 +218,7 @@ List<SkillsModel> skills = [
     colorS: Colors.orange,
   ),
   SkillsModel(
-    skillName: "Riverpod",
+    skillName: "Bloc",
     colorS: Colors.blue,
   ),
   SkillsModel(

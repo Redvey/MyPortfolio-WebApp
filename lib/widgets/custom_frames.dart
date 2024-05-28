@@ -1,6 +1,6 @@
 import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/phone_screen_wrapper.dart';
+import 'package:portfolio/screens/device_frame/phone_screen_wrapper.dart';
 import 'package:provider/provider.dart';
 
 import '../consts/data.dart';

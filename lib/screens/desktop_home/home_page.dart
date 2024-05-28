@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:o3d/o3d.dart';
 import 'package:portfolio/consts/data.dart';
 import 'package:portfolio/providers/current_state.dart';
-import 'package:portfolio/screens/desktop_home/widgets/flutter_text.dart';
+import 'package:portfolio/widgets/flutter_text.dart';
 import 'package:portfolio/screens/desktop_home/widgets/hire_me.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                             buttonRadius: 52),
                       ],
                     ),
-                    const BwFlutterText(),
+                    const BwFlutterText(size: 18,),
                   ],
                 ),
               ),
@@ -114,6 +114,7 @@ class _HomePageState extends State<HomePage> {
               ),
               CustomDeviceButton(
                 currentState: currentState,
+                size: 24,
                 btnRadi: 38,
                 borderRadi: 100,
               )
