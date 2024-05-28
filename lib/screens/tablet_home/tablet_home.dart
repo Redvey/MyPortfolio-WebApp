@@ -1,17 +1,14 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:custom_button_builder/custom_button_builder.dart';
-import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:o3d/o3d.dart';
 import 'package:portfolio/consts/data.dart';
 import 'package:portfolio/providers/current_state.dart';
-import 'package:portfolio/screens/phone_screen_wrapper.dart';
-import 'package:portfolio/widgets/frosted_containers.dart';
+import 'package:portfolio/screens/tablet_home/widgets/hire_me.dart';
+import 'package:portfolio/screens/tablet_home/widgets/tablet_clock.dart';
+import 'package:portfolio/widgets/custom_device.dart';
+import 'package:portfolio/widgets/custom_frames.dart';
+import 'package:portfolio/widgets/flutter_text.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../widgets/color_box.dart';
 
 class TabletHome extends StatefulWidget {
@@ -67,20 +64,28 @@ class _TabletHomeState extends State<TabletHome> {
         //     }),
 
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          padding: const EdgeInsets.symmetric(vertical: 24),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   //CLOCK
-                  TabletClock(formattedDate: formattedDate, formattedTime: formattedTime),
+                  TabletClock(
+                      formattedDate: formattedDate,
+                      formattedTime: formattedTime),
                   const SizedBox(height: 10),
                   //ANIMATED TEXT
-                  const HireMeBox(),
+                  const TabHireMeBox(),
                   const SizedBox(height: 10),
                   //THEME
-                  ColorPalette(currentState: currentState,height: 105,width: 112,borderRadius: 50,buttonRadius: 26,),
+                  ColorPalette(
+                    currentState: currentState,
+                    height: 105,
+                    width: 112,
+                    borderRadius: 50,
+                    buttonRadius: 26,
+                  ),
                 ],
               ),
               Expanded(
@@ -90,31 +95,20 @@ class _TabletHomeState extends State<TabletHome> {
                     const SizedBox(
                       width: 20 / 0.5,
                     ),
-                    DeviceSelector(currentState: currentState),
+                    CustomDeviceButton(
+                      currentState: currentState,
+                      btnRadi: 50,
+                      borderRadi: 60,
+                      size: 19,
+                      axis: Axis.vertical,
+                    ),
                     const SizedBox(
                       width: 40,
                     ),
-                    SizedBox(
-                      height: size.height - 300,
-                      child: Consumer<CurrentState>(
-                        builder: (context, _, __) {
-                          return DeviceFrame(
-                            device: currentState.currentDevice,
-                            screen: Container(
-                              decoration: BoxDecoration(
-                                gradient:
-                                    colorPalette[currentState.knobSelected]
-                                        .gradient,
-                              ),
-                              child: ScreenWrapper(
-                                  childG: currentState.currentScreen),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20,
+                    CustomFrames(
+                        size: size, currentState: currentState, minimizer: 270),
+                    const BwFlutterText(
+                      size: 14,
                     ),
                   ],
                 ),
@@ -126,196 +120,6 @@ class _TabletHomeState extends State<TabletHome> {
           height: 10 / 0.5,
         ),
       ]),
-    );
-  }
-}
-
-class DeviceSelector extends StatelessWidget {
-  const DeviceSelector({
-    super.key,
-    required this.currentState,
-  });
-
-  final CurrentState currentState;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        ...List.generate(
-            devices.length,
-            (index) => Selector<CurrentState, DeviceInfo>(
-                selector: (context, provider) =>
-                    provider.currentDevice,
-                builder: (context, _, __) {
-                  return CustomButton(
-                      backgroundColor: Colors.black,
-                      isThreeD: true,
-                      animate: true,
-                      height: 40,
-                      width: 40,
-                      borderRadius: 50,
-                      shadowColor: Colors.white,
-                      pressed: currentState.currentDevice ==
-                              devices[index].devices
-                          ? Pressed.pressed
-                          : Pressed.notPressed,
-                      onPressed: () {
-                        currentState.changeSelectedDevice(
-                            devices[index].devices);
-                      },
-                      child: Center(
-                        child: Icon(
-                          devices[index].data,
-                          size: 19,
-                          color: Colors.white,
-                        ),
-                      ));
-                }))
-      ],
-    );
-  }
-}
-
-class TabletColoredBox extends StatelessWidget {
-  const TabletColoredBox({
-    super.key,
-    required this.currentState,
-  });
-
-  final CurrentState currentState;
-
-  @override
-  Widget build(BuildContext context) {
-    return FrostedContainer(
-      height: 105,
-      width: 112,
-      childG: Center(
-        child: Wrap(
-          children: [
-            ...List.generate(
-              colorPalette.length,
-              (index) => CustomButton(
-                onPressed: () {
-                  currentState.changeGradient(index);
-                },
-                margin: const EdgeInsets.all(10),
-                animate: true,
-                borderRadius: 50,
-                height: 26,
-                width: 26,
-                backgroundColor: colorPalette[index].color,
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class HireMeBox extends StatelessWidget {
-  const HireMeBox({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FrostedContainer(
-      height: 105,
-      width: 112,
-      childG: Padding(
-        padding: const EdgeInsets.all(8.0 / 0.5),
-        child: Center(
-          child: DefaultTextStyle(
-            style: GoogleFonts.robotoMono(
-                fontWeight: FontWeight.bold,
-                fontSize: 14 / 0.5,
-                color: Colors.white),
-            child: AnimatedTextKit(
-              repeatForever: true,
-              animatedTexts: [
-                RotateAnimatedText('Hire me!',
-                    textStyle: const TextStyle(fontSize: 16)),
-                RotateAnimatedText('Send me Hello!',
-                    textStyle: const TextStyle(fontSize: 16)),
-              ],
-              onTap: () async {
-                String email =
-                    Uri.encodeComponent("roopam12cse@gmail.com");
-                String subject = Uri.encodeComponent(
-                    "Job Offer: [Position Title] - [Your Company Name]");
-                String body = Uri.encodeComponent(
-                    "Hi! I'm <type your name>");
-                Uri mail = Uri.parse(
-                    "mailto:$email?subject=$subject&body=$body");
-                if (await launchUrl(mail)) {
-                  // Email app opened
-                } else {
-                  // Email app is not opened
-                }
-              },
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class TabletClock extends StatelessWidget {
-  const TabletClock({
-    super.key,
-    required this.formattedDate,
-    required this.formattedTime,
-  });
-
-  final String formattedDate;
-  final String formattedTime;
-
-  @override
-  Widget build(BuildContext context) {
-    return FrostedContainer(
-      height: 105,
-      width: 112,
-      // decoration: BoxDecoration(
-      //   color: Color(0xFF242633),
-      //   borderRadius: BorderRadius.circular(20),
-      // ),
-      childG: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Row(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 1,
-                  width: 25,
-                  color: Colors.white,
-                ),
-                Text(
-                  formattedDate,
-                  style: GoogleFonts.robotoMono(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  formattedTime,
-                  style: GoogleFonts.robotoMono(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 1.5),
-              ],
-            )
-          ],
-        ),
-      ),
     );
   }
 }

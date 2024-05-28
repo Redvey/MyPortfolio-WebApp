@@ -2,7 +2,7 @@ import 'package:device_frame/device_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../screens/phone_home_page.dart';
+import '../screens/device_frame/phone_home_page.dart';
 
 class CurrentState extends ChangeNotifier {
   DeviceInfo currentDevice = Devices.android.samsungGalaxyNote20Ultra;

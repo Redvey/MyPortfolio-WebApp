@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:portfolio/consts/data.dart';
 import 'package:portfolio/providers/current_state.dart';
-import 'package:portfolio/screens/mobile_home/widgets/mobile_custom_button.dart';
-import 'package:portfolio/screens/mobile_home/widgets/mobile_device_frames.dart';
+import 'package:portfolio/widgets/custom_device.dart';
+import 'package:portfolio/widgets/custom_frames.dart';
 import 'package:provider/provider.dart';
 
 class PhoneScaffold extends StatefulWidget {
@@ -33,14 +33,23 @@ class _PhoneScaffoldState extends State<PhoneScaffold> {
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const SizedBox(
                 height: 10,
               ),
-              MobileDeviceFrame(size: size, currentState: currentState),
-              
-              MobileCustomButtons(currentState: currentState)
+              CustomFrames(
+                size: size,
+                currentState: currentState,
+                minimizer: 300,
+              ),
+              CustomDeviceButton(
+                deviceNum: 2,
+                currentState: currentState,
+                btnRadi: 38,
+                borderRadi: 100,
+                size: 19,
+              )
             ],
           ),
         ),
