@@ -191,7 +191,7 @@ final List<JobExperience> jobExperiences = [
 
 const String linkedIN = "https://www.linkedin.com/in/roopam10/";
 const String resume =
-    "https://drive.google.com/file/d/1SHvNFoXbTwWSUhW7SkXJsGeeyp4QvIMG/view";
+    "https://drive.google.com/file/d/1LrFIBqiPlCjiWZe--iL7BMOPMCIPyfe4/view?usp=sharing";
 const String github = "https://github.com/Redvey";
 const String twitter = "https://twitter.com/redvey10";
 const String behance = "https://www.behance.net/redvey";
